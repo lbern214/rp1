@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+/*
 function App() {
   return (
     <div className="App">
@@ -17,6 +17,17 @@ function App() {
         >
           Learn React
         </a>
+      </header>
+    </div>
+  );
+}
+*/
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to Date Calculator</h1>
+        <p>This is your custom React application.</p>
       </header>
     </div>
   );
