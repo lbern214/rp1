@@ -1,3 +1,4 @@
+/*
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,7 +22,7 @@ function App() {
     </div>
   );
 }
-/*
+ 
 function App() {
   return (
     <div className="App">
@@ -33,4 +34,37 @@ function App() {
   );
 }
 */
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [date, setDate] = useState('');
+  const [futureDate, setFutureDate] = useState('');
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
+
+  const calculateFutureDate = () => {
+    const inputDate = new Date(date);
+    inputDate.setDate(inputDate.getDate() + 28);
+    setFutureDate(inputDate.toISOString().split('T')[0]);
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Date Calculator</h1>
+        <p>Enter a date and calculate the date 28 days in the future.</p>
+        <input type="date" value={date} onChange={handleDateChange} />
+        <button onClick={calculateFutureDate}>Calculate</button>
+        {futureDate && (
+          <p>The date 28 days after {date} is {futureDate}</p>
+        )}
+      </header>
+    </div>
+  );
+}
+
+
 export default App;
